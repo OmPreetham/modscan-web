@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .perspective-[1000px] {
+    perspective: 1000px;
+  }
+
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 0%;
+    --radius: 0rem;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 100%;
+    --radius: 0rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Monospace styling for markdown */
+.prose {
+  font-family: "JetBrains Mono", "SF Mono", "Fira Code", "Consolas", monospace !important;
+}
+
+.prose * {
+  font-family: "JetBrains Mono", "SF Mono", "Fira Code", "Consolas", monospace !important;
+}
+
+.prose code {
+  font-family: "JetBrains Mono", "SF Mono", "Fira Code", "Consolas", monospace !important;
+  background-color: rgba(130, 130, 130, 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+/* Code blocks */
+.prose pre {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-radius: 4px;
+  padding: 1em;
+  overflow-x: auto;
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  color: #f8f8f2;
+}
+
+/* Light mode styles for code blocks */
+:root:not(.dark) .prose pre {
+  background-color: rgba(240, 240, 240, 0.8) !important;
+}
+
+:root:not(.dark) .prose pre code {
+  color: #1a1a1a;
+}
+
+/* Resize handle styling */
+.resize-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  cursor: nwse-resize;
+  z-index: 50;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.resize-handle:hover {
+  opacity: 1;
+}
+
+/* Prevent text selection during resize */
+.resizing * {
+  user-select: none !important;
+}
+
+/* Typography */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.prose h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose p,
+.prose ul,
+.prose ol {
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+.prose li {
+  margin-bottom: 0.25em;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.5em;
+}
+
