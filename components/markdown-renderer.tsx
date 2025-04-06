@@ -38,7 +38,7 @@ export default function MarkdownRenderer({
   const [markdown, setMarkdown] = useState<string | null>(content || null)
   const [loading, setLoading] = useState(!content && !!filePath)
   const containerRef = useRef<HTMLDivElement>(null)
-  const [containerHeight, setContainerHeight] = useState(70)
+  const [containerHeight, setContainerHeight] = useState(80)
   const { theme, setTheme } = useTheme()
   const { isMaximized, setIsMaximized } = useMaximizeContext()
   const [copied, setCopied] = useState(false)
@@ -192,7 +192,7 @@ export default function MarkdownRenderer({
 
   // If not mounted yet, return a simple loading state
   if (!mounted) {
-    return <div className="w-[800px] h-[70vh] bg-background animate-pulse rounded-lg"></div>
+    return <div className="w-[80vw] h-[80vh] max-w-[calc(100vw-2rem)] bg-background animate-pulse rounded-lg"></div>
   }
 
   const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches)
@@ -202,7 +202,7 @@ export default function MarkdownRenderer({
       ref={containerRef}
       className={`
         transition-all duration-300 ease-in-out relative
-        ${isMaximized ? "w-[calc(100%-2rem)] h-[calc(100vh-2rem)]" : "w-[800px] max-w-[calc(100vw-2rem)]"}
+        ${isMaximized ? "w-[calc(100%-2rem)] h-[calc(100vh-2rem)]" : "w-[80vw] max-w-[calc(100vw-2rem)]"}
         ${isResizing ? "select-none" : ""}
       `}
       style={{

@@ -82,7 +82,7 @@ export default function RootLayout({
       <body className={`${inter.className} ${inter.variable}`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
           storageKey="modscan-theme"
