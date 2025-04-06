@@ -140,7 +140,13 @@ export default function Home() {
         <VoidSpace>
           <Logo />
           <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
-            <MarkdownRenderer content={sampleMarkdown} title="ModScan Documentation" />
+            <MarkdownRenderer
+              content={sampleMarkdown}
+              title="ModScan Documentation"
+              npmLink="https://www.npmjs.com/package/modscan"
+              githubLink="https://github.com/OmPreetham/modscan"
+              authorLink="https://ompreetham.com"
+            />
           </div>
         </VoidSpace>
       </main>

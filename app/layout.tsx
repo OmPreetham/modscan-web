@@ -15,13 +15,13 @@ export const metadata: Metadata = {
   description:
     "An advanced command-line tool that scans and analyzes node_modules folders, displaying comprehensive statistics and information in a clean, interactive table UI.",
   keywords: ["node modules", "npm", "disk space", "cleanup", "developer tools", "cli", "node.js", "javascript"],
-  authors: [{ name: "ModScan Team" }],
-  creator: "ModScan",
-  publisher: "ModScan",
+  authors: [{ name: "Om Preetham Bandi", url: "https://ompreetham.com" }],
+  creator: "Om Preetham Bandi",
+  publisher: "Om Preetham Bandi",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://modscan.dev",
+    url: "https://modscan.ompreetham.com",
     title: "ModScan - Node Modules Scanner and Cleaner",
     description:
       "An advanced command-line tool that scans and analyzes node_modules folders, displaying comprehensive statistics and information in a clean, interactive table UI.",
@@ -41,6 +41,7 @@ export const metadata: Metadata = {
     description:
       "An advanced command-line tool that scans and analyzes node_modules folders, displaying comprehensive statistics and information in a clean, interactive table UI.",
     images: ["/logo.jpg"],
+    creator: "@ompreetham",
   },
   manifest: "/manifest.json",
   icons: {
@@ -75,9 +76,9 @@ export default function RootLayout({
         <meta name="color-scheme" content="light dark" />
         <link rel="icon" href="/logo.jpg" />
         <link rel="apple-touch-icon" href="/logo.jpg" />
-        <link rel="mask-icon" href="/logo.jpg" color="#000000" />
+        <link rel="mask-icon" href="/logo.jpg" color="#ffffff" />
         <meta name="msapplication-TileImage" content="/logo.jpg" />
-        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
       </head>
       <body className={`${inter.className} ${inter.variable}`}>
         <ThemeProvider

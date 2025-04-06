@@ -27,7 +27,7 @@ export function Logo() {
       className="fixed top-5 left-5 flex flex-col items-center z-20 transition-opacity duration-300"
       role="banner"
     >
-      <Link href="/" className="flex flex-col items-center group">
+      <Link href="https://modscan.ompreetham.com" className="flex flex-col items-center group">
         <div className="flex gap-1" role="heading" aria-label="MODSCAN">
           {["M", "O", "D", "S", "C", "A", "N"].map((letter, index) => (
             <div

@@ -26,6 +26,7 @@ interface MarkdownRendererProps {
   title?: string
   npmLink?: string
   githubLink?: string
+  authorLink?: string
 }
 
 export default function MarkdownRenderer({
@@ -34,6 +35,7 @@ export default function MarkdownRenderer({
   title = "Documentation",
   npmLink = "https://www.npmjs.com/package/modscan",
   githubLink = "https://github.com/ompreetham/modscan",
+  authorLink = "https://ompreetham.com",
 }: MarkdownRendererProps) {
   const [markdown, setMarkdown] = useState<string | null>(content || null)
   const [loading, setLoading] = useState(!content && !!filePath)
@@ -88,6 +90,7 @@ export default function MarkdownRenderer({
 
   const openNpmLink = () => window.open(npmLink, "_blank")
   const openGithubLink = () => window.open(githubLink, "_blank")
+  const openAuthorLink = () => window.open(authorLink, "_blank")
 
   const copyInstallCommand = () => {
     navigator.clipboard.writeText("npm i modscan -g").then(() => {
@@ -215,7 +218,7 @@ export default function MarkdownRenderer({
       <Card
         className={`h-full w-full overflow-hidden backdrop-blur-sm ${isDark ? "bg-black/90" : "bg-white/90"} ${isDark ? "border-gray-850" : "border-gray-300"} border shadow-lg rounded-none transform-style-preserve-3d relative`}
         style={{
-          boxShadow: "0 10px 30px -10px rgba(0,0,0,0.3), 0 4px 10px rgba(0,0,0,0.2), 0 0 0 1px rgba(128,128,128,0.1)",
+          boxShadow: "0 5px 15px -5px rgba(0,0,0,0.15), 0 2px 5px rgba(0,0,0,0.1), 0 0 0 1px rgba(128,128,128,0.05)",
         }}
       >
         <CardHeader
@@ -223,7 +226,7 @@ export default function MarkdownRenderer({
         >
           <div className="flex items-center gap-2 flex-wrap">
             <CardTitle
-              className={`flex items-center gap-1 sm:gap-2 cursor-pointer hover:opacity-80 transition-colors text-xs sm:text-sm ${
+              className={`flex items-center gap-1 sm:gap-2 cursor-pointer hover:opacity-80 transition-colors text-[10px] sm:text-xs md:text-sm ${
                 isDark ? "text-white" : "text-black"
               }`}
               onClick={copyInstallCommand}
@@ -236,12 +239,23 @@ export default function MarkdownRenderer({
                 <Copy className={`h-3 w-3 sm:h-4 sm:w-4 ${isDark ? "text-white" : "text-black"} opacity-70`} />
               )}
             </CardTitle>
+            <Button
+              variant="link"
+              size="sm"
+              className={`hidden sm:flex h-7 sm:h-8 text-[10px] sm:text-xs md:text-sm p-0 ${
+                isDark ? "text-white/70 hover:text-white" : "text-black/70 hover:text-black"
+              }`}
+              onClick={openAuthorLink}
+              title="Visit author's website"
+            >
+              by Om Preetham Bandi
+            </Button>
           </div>
           <div className="flex items-center gap-1 sm:gap-2">
             <Button
               variant="outline"
               size="sm"
-              className={`h-7 sm:h-8 text-xs sm:text-sm border ${isDark ? "border-gray-700" : "border-gray-400"} ${
+              className={`h-6 sm:h-7 md:h-8 text-[10px] sm:text-xs md:text-sm border ${isDark ? "border-gray-700" : "border-gray-400"} ${
                 isDark ? "bg-black text-white hover:bg-gray-900" : "bg-white text-black hover:bg-gray-50"
               } flex items-center gap-1`}
               onClick={openNpmLink}
@@ -253,7 +267,7 @@ export default function MarkdownRenderer({
             <Button
               variant="outline"
               size="sm"
-              className={`h-7 sm:h-8 text-xs sm:text-sm border ${isDark ? "border-gray-700" : "border-gray-400"} ${
+              className={`h-6 sm:h-7 md:h-8 text-[10px] sm:text-xs md:text-sm border ${isDark ? "border-gray-700" : "border-gray-400"} ${
                 isDark ? "bg-black text-white hover:bg-gray-900" : "bg-white text-black hover:bg-gray-50"
               } flex items-center gap-1`}
               onClick={openGithubLink}
@@ -265,7 +279,7 @@ export default function MarkdownRenderer({
             <Button
               variant="outline"
               size="icon"
-              className={`h-7 w-7 sm:h-8 sm:w-8 border ${isDark ? "border-gray-700" : "border-gray-400"} ${
+              className={`h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 border ${isDark ? "border-gray-700" : "border-gray-400"} ${
                 isDark ? "bg-black text-white hover:bg-gray-900" : "bg-white text-black hover:bg-gray-50"
               }`}
               onClick={cycleTheme}
@@ -277,7 +291,7 @@ export default function MarkdownRenderer({
             <Button
               variant="outline"
               size="icon"
-              className={`h-7 w-7 sm:h-8 sm:w-8 border ${isDark ? "border-gray-700" : "border-gray-400"} ${
+              className={`h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 border ${isDark ? "border-gray-700" : "border-gray-400"} ${
                 isDark ? "bg-black text-white hover:bg-gray-900" : "bg-white text-black hover:bg-gray-50"
               }`}
               onClick={toggleMaximize}
@@ -303,7 +317,7 @@ export default function MarkdownRenderer({
               <Skeleton className="h-4 w-full" />
             </div>
           ) : (
-            <ReactMarkdown className="text-sm sm:text-base font-mono">{markdown || ""}</ReactMarkdown>
+            <ReactMarkdown className="text-xs sm:text-sm md:text-base font-mono">{markdown || ""}</ReactMarkdown>
           )}
         </CardContent>
 
